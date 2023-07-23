@@ -19,4 +19,4 @@ export class Billing extends AbstractDocument {
   payment_email_sent: Boolean;
 }
 
-export const OrderSchema = SchemaFactory.createForClass(Billing);
+export const BillingSchema = SchemaFactory.createForClass(Billing);

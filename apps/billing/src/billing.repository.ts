@@ -5,8 +5,8 @@ import { Model, Connection } from 'mongoose';
 import { Billing } from './schemas/billing.schema';
 
 @Injectable()
-export class billingRepository extends AbstractRepository<Billing> {
-  protected readonly logger = new Logger(billingRepository.name);
+export class BillingRepository extends AbstractRepository<Billing> {
+  protected readonly logger = new Logger(BillingRepository.name);
 
   constructor(
     @InjectModel(Billing.name) orderModel: Model<Billing>,

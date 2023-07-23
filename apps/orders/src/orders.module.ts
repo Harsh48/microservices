@@ -8,6 +8,7 @@ import { OrdersService } from './orders.service';
 import { OrdersRepository } from './orders.repository';
 import { Order, OrderSchema } from './schemas/order.schema';
 import { EMAIL_SERVICE } from './constants/services';
+import { ClientsModule, Transport } from '@nestjs/microservices';
 
 @Module({
   imports: [
@@ -23,7 +24,7 @@ import { EMAIL_SERVICE } from './constants/services';
     MongooseModule.forFeature([{ name: Order.name, schema: OrderSchema }]),
     RmqModule.register({
       name: EMAIL_SERVICE,
-    })
+    }),
   ],
   controllers: [OrdersController],
   providers: [OrdersService, OrdersRepository],

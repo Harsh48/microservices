@@ -8,7 +8,15 @@ export class EmailService {
     return 'Hello World!';
   }
 
-  bill(data: any) {
+  createOrder(data: any) {
     this.logger.log('email...', data);
+  }
+
+  initiatePayment(data: any) {
+    this.logger.log('email payment...', data);
+  }
+
+  updatePayment(data: any) {
+    this.logger.log('email update payment...', data);
   }
 }

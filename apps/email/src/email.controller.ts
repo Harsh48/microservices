@@ -17,7 +17,19 @@ export class EmailController {
 
   @EventPattern('order_created')
   async handleOrderCreated(@Payload() data: any, @Ctx() context: RmqContext) {
-    this.emailService.bill(data);
+    this.emailService.createOrder(data);
+    this.rmqService.ack(context);
+  }
+
+  @EventPattern('payment_initiated')
+  async handlePaymentCreated(@Payload() data: any, @Ctx() context: RmqContext) {
+    this.emailService.initiatePayment(data);
+    this.rmqService.ack(context);
+  }
+
+  @EventPattern('payment_events')
+  async handlePaymentEvents(@Payload() data: any, @Ctx() context: RmqContext) {
+    this.emailService.updatePayment(data);
     this.rmqService.ack(context);
   }
 }

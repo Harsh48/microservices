@@ -6,7 +6,6 @@ async function bootstrap() {
   const app = await NestFactory.create(EmailModule);
   const rmqService = app.get<RmqService>(RmqService);
   app.connectMicroservice(rmqService.getOptions('EMAIL'));
-  console.log('hello'+ app.connectMicroservice(rmqService.getOptions('EMAIL')))
   await app.startAllMicroservices();
 }
 bootstrap();

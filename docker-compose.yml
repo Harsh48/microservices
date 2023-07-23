@@ -9,6 +9,7 @@ services:
       - ./apps/orders/.env
     depends_on:
       - email
+      - billing
       - rabbitmq
     volumes:
       - .:/usr/src/app
@@ -24,7 +25,7 @@ services:
     env_file:
       - ./apps/billing/.env
     ports:
-      - '3001:3001'
+      - '3002:3002'
     depends_on:
       - rabbitmq
     volumes:
